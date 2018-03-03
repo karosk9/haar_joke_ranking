@@ -13,7 +13,7 @@ class JokesDatabase
 
 	def create_jokes_database
 		@jokes_database = Hash.new
-		3.times{ |joke|
+		6.times{ |joke|
 		joke = HaarJoke.create_joke
 		@jokes_database[joke]=0
 		}

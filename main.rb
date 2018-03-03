@@ -1,8 +1,8 @@
-require '/home/karolina/ruby/zadania_zjazd3/interviewee.rb'
-require '/home/karolina/ruby/zadania_zjazd3/interviewee_group.rb'
-require '/home/karolina/ruby/zadania_zjazd3/single_rate.rb'
-require '/home/karolina/ruby/zadania_zjazd3/jokes_database.rb'
-require '/home/karolina/ruby/zadania_zjazd3/ranking.rb'
+require File.expand_path('../interviewee.rb', __FILE__)
+require File.expand_path('../interviewee_group.rb', __FILE__)
+require File.expand_path('../single_rate.rb', __FILE__)
+require File.expand_path('../jokes_database.rb', __FILE__)
+require File.expand_path('../ranking.rb', __FILE__)
 
 jokes = JokesDatabase.new
 jokes.create_jokes_database
@@ -15,4 +15,3 @@ ranking = Ranking.new(jokes, group)
 ranking.fill_forms
 puts ranking
 ranking.winner
-

@@ -1,9 +1,9 @@
-require '/home/karolina/ruby/zadania_zjazd3/interviewee_group.rb'
-class Interviewee 
+require File.expand_path('../interviewee_group.rb',__FILE__)
+class Interviewee
 	attr_reader :name
 
 	def initialize
-		@name = rand_name	
+		@name = rand_name
 	end
 
 	def rand_name

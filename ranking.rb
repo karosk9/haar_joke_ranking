@@ -1,5 +1,5 @@
-require '/home/karolina/ruby/zadania_zjazd3/jokes_database.rb'
-require '/home/karolina/ruby/zadania_zjazd3/single_rate.rb'
+require File.expand_path('../jokes_database.rb',__FILE__)
+require File.expand_path('../single_rate.rb',__FILE__)
 class Ranking
 	attr_accessor :jokes_ranking, :single_rate
 	attr_reader :int_group
@@ -12,7 +12,7 @@ class Ranking
 	end
 
 	def fill_forms
-		@int_group.each do |interviewee| 
+		@int_group.each do |interviewee|
 		puts "\n#{interviewee.name} is rating jokes...\n"
 		interviewee = SingleRate.new(jokes_ranking)
 		@single_rate = interviewee.rate_jokes #zwraca hasha
@@ -25,7 +25,7 @@ class Ranking
 	end
 
 	def average
-		@jokes_hash.each {|joke, rating| 
+		@jokes_hash.each {|joke, rating|
 			@jokes_hash[joke] =  rating.to_f/int_group.length
 		}
 	end
@@ -39,14 +39,13 @@ class Ranking
 
 	def winner
 		rating =0
-			best_jokes = @jokes_hash.select do |joke, rating| 
+			best_jokes = @jokes_hash.select do |joke, rating|
 			rating==@jokes_hash.values.max
 		end
-	
+
 		if best_jokes.length>1 then puts "\nbest jokes are: " else puts "\nbest joke is: " end
 		best_jokes.each_key {|joke| puts joke}
-		puts "with average rate #{best_jokes.values.max}" 
+		puts "with average rate #{best_jokes.values.max}"
 	end
 
 end
-
